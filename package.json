@@ -1,0 +1,25 @@
+{
+  "name": "pavlism-asynctracker",
+  "version": "0.0.1",
+  "description": "Used to track async tasks",
+  "main": "AsyncTracker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavlism/AsyncTracker.git"
+  },
+  "keywords": [
+    "Async",
+    "Tracker",
+    "pavlis"
+  ],
+  "author": "Mark Pavlis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavlism/AsyncTracker/issues"
+  },
+  "dependencies": {"pavlism-logger": "^1.0.0"},
+  "homepage": "https://github.com/pavlism/AsyncTracker#readme"
+}
