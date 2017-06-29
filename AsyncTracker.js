@@ -1,5 +1,3 @@
-//V1.0
-
 /**
  * The async tracker is used a public sataic object to keep track of async tasks
  * To use this you must first setup the afterLoad event using the .afterLoad(), wheich will fire a funnction when all the Async Tasks have been completed
@@ -28,9 +26,7 @@
    
 var log = new Logger('AsyncTracker.js', CLL.error);
 
-AsyncTracker = new (function () {
-    this.events = [];
-
+AsyncTracker = class AsyncTracker{
     /**
      * This will setup a function to fire when all the async takss have been completed.
      * The setup for a specific taks involses setting up an afterLoad function by passing in the 
@@ -45,7 +41,7 @@ AsyncTracker = new (function () {
      * @param args {object} The object the will get passed to the callback as  afterLoadArgs
      * @param callback {function} The array the will be copied
      */
-    this.afterLoad = function (asyncTaskName, numAsyncTasks, args ,callback) {
+    static afterLoad (asyncTaskName, numAsyncTasks, args ,callback) {
         //validate input
         if (!Lib.JS.isString(asyncTaskName)) {
             log.error("The first paramater (events) must be a string that represents the event to listen too");
@@ -80,7 +76,7 @@ AsyncTracker = new (function () {
      * @param numAsyncTasks {int} The number of async tasks
      * @param args {object} The objects the will get passed to the afterLoad function as an array as taskCompleteArgs
      */
-    this.taskComplete = function (asyncTaskName, args) {
+    static taskComplete (asyncTaskName, args) {
         var thisEvent = this.events[asyncTaskName];
 
         if (Lib.JS.isUndefined(thisEvent)) {
@@ -106,7 +102,9 @@ AsyncTracker = new (function () {
         }
     };
     //this will remove an async task used after a tasks set is complete so mutiple fireings don't take place
-    this.remove = function (listener) {
+    static remove (listener) {
         Lib.JS.remove(this.events[listener.event], listener);
-    };
-})();
+    };    
+}
+AsyncTracker.events = [];
+module.exports = AsyncTracker;
