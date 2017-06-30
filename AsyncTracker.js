@@ -23,7 +23,7 @@
  * 
  */
 
-   
+var Logger = require("pavlism-logger");
 var log = new Logger('AsyncTracker.js', CLL.error);
 
 AsyncTracker = class AsyncTracker{
