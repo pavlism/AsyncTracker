@@ -1,6 +1,6 @@
 {
   "name": "pavlism-asynctracker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Used to track async tasks",
   "main": "AsyncTracker.js",
   "scripts": {
